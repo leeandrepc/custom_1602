@@ -1,0 +1,2 @@
+source /home/andre/pythonstuff/learning/esp32proj/custom_1602/build/bootloader/gdbinit/symbols
+source /home/andre/pythonstuff/learning/esp32proj/custom_1602/build/bootloader/gdbinit/connect

@@ -1,0 +1,11 @@
+{
+    "idf.currentSetup": "/home/andre/.espressif/v6.1/esp-idf",
+    "git.ignoreLimitWarning": true,
+    "clangd.path": "/home/andre/.espressif/tools/esp-clangd/esp-21.1.3_20260408/esp-clangd/bin/clangd",
+    "clangd.arguments": [
+      "--background-index",
+      "--query-driver=**",
+      "--compile-commands-dir=/home/andre/pythonstuff/learning/esp32proj/custom_1602/build"
+    ],
+    "C_Cpp.errorSquiggles": "disabled"
+}

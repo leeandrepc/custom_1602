@@ -1,0 +1,145 @@
+Command: /home/andre/.espressif/python_env/idf6.1_py3.14_env/bin/python /home/andre/.espressif/v6.1/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/andre/pythonstuff/learning/esp32proj/custom_1602/build/custom_1602.elf /home/andre/pythonstuff/learning/esp32proj/custom_1602/build/bootloader/bootloader.elf -m '/home/andre/.espressif/python_env/idf6.1_py3.14_env/bin/python' '/home/andre/.espressif/v6.1/esp-idf/tools/idf.py'
+: Compile time:     Nov 17 2026 16:04:01
+[0;32mI (191) app_init: ELF file SHA256:  5615b06da...[0m
+[0;32mI (196) app_init: �ets Jul 29 2019 12:21:46[0m
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15824
+load:0x40080400,len:3988
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.1 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Nov 17 2026 16:10:37[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (31) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (35) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=098ech ( 39148) map[0m
+[0;32mI (100) esp_image: segment 1: paddr=00019914 vaddr=3ffb0000 size=02b5ch ( 11100) load[0m
+[0;32mI (105) esp_image: segment 2: paddr=0001c478 vaddr=40080000 size=03ba0h ( 15264) load[0m
+[0;32mI (111) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=0f2b0h ( 62128) map[0m
+[0;32mI (134) esp_image: segment 4: paddr=0002f2d8 vaddr=40083ba0 size=070dch ( 28892) load[0m
+[0;32mI (146) esp_image: segment 5: paddr=000363bc vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (152) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (152) boot: Disabling RNG early entropy source...[0m
+[0;32mI (164) cpu_start: Multicore app[0m
+[0;32mI (172) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (172) cpu_start: Pro cpu start user code[0m
+[0;32mI (172) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (174) app_init: Application information:[0m
+[0;32mI (178) app_init: Project name:     custom_1602[0m
+[0;32mI (182) app_init: App version:      3b540a8[0m
+[0;32mI (186) app_init: Compile time:     Nov 17 2026 16:04:01[0m
+[0;32mI (191) app_init: ELF file SHA256:  5615b06da...[0m
+[0;32mI (196) app_init: ESP-IDF:          v6.1[0m
+[0;32mI (199) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (203) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (207) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (211) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (217) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (222) heap_init: At 3FFB35B8 len 0002CA48 (178 KiB): DRAM[0m
+[0;32mI (227) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (233) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (238) heap_init: At 4008AC7C len 00015384 (84 KiB): IRAM[0m
+[0;33mW (245) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (257) spi_flash: detected chip: generic[0m
+[0;32mI (260) spi_flash: flash io: dio[0m
+[0;33mW (263) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (277) main_task: Started on CPU0[0m
+[0;32mI (277) main_task: Calling app_main()[0m
+[0;32mI (277) INFO: Line fitting calibration available[0m
+Raw Data Reading: 2846 | Calibrated Voltage: 2479mV | Estimated Voltage: 3057.97
+Raw Data Reading: 2883 | Calibrated Voltage: 2509mV | Estimated Voltage: 3097.73
+Raw Data Reading: 2864 | Calibrated Voltage: 2493mV | Estimated Voltage: 3077.31
+Raw Data Reading: 2889 | Calibrated Voltage: 2513mV | Estimated Voltage: 3104.18
+Raw Data Reading: 2883 | Calibrated Voltage: 2509mV | Estimated Voltage: 3097.73
+Raw Data Reading: 2894 | Calibrated Voltage: 2516mV | Estimated Voltage: 3109.55
+Raw Data Reading: 2905 | Calibrated Voltage: 2523mV | Estimated Voltage: 3121.37
+Raw Data Reading: 2900 | Calibrated Voltage: 2520mV | Estimated Voltage: 3116.00
+Raw Data Reading: 2890 | Calibrated Voltage: 2514mV | Estimated Voltage: 3105.25
+Raw Data Reading: 2880 | Calibrated Voltage: 2507mV | Estimated Voltage: 3094.51
+Raw Data Reading: 2865 | Calibrated Voltage: 2494mV | Estimated Voltage: 3078.39
+Raw Data Reading: 2874 | Calibrated Voltage: 2502mV | Estimated Voltage: 3088.06
+Raw Data Reading: 2902 | Calibrated Voltage: 2521mV | Estimated Voltage: 3118.14
+Raw Data Reading: 2853 | Calibrated Voltage: 2484mV | Estimated Voltage: 3065.49
+Raw Data Reading: 2886 | Calibrated Voltage: 2510mV | Estimated Voltage: 3100.95
+Raw Data Reading: 2887 | Calibrated Voltage: 2511mV | Estimated Voltage: 3102.03
+Raw Data Reading: 2883 | Calibrated Voltage: 2509mV | Estimated Voltage: 3097.73
+Raw Data Reading: 2879 | Calibrated Voltage: 2506mV | Estimated Voltage: 3093.43
+Raw Data Reading: 2839 | Calibrated Voltage: 2473mV | Estimated Voltage: 3050.45
+Raw Data Reading: 2897 | Calibrated Voltage: 2518mV | Estimated Voltage: 3112.77
+Raw Data Reading: 2714 | Calibrated Voltage: 2370mV | Estimated Voltage: 2916.14
+Raw Data Reading: 2975 | Calibrated Voltage: 2566mV | Estimated Voltage: 3196.58
+Raw Data Reading: 2889 | Calibrated Voltage: 2513mV | Estimated Voltage: 3104.18
+Raw Data Reading: 2827 | Calibrated Voltage: 2463mV | Estimated Voltage: 3037.56
+Raw Data Reading: 2896 | Calibrated Voltage: 2518mV | Estimated Voltage: 3111.70
+Raw Data Reading: 2885 | Calibrated Voltage: 2510mV | Estimated Voltage: 3099.88
+Raw Data Reading: 2772 | Calibrated Voltage: 2418mV | Estimated Voltage: 2978.46
+Raw Data Reading: 2881 | Calibrated Voltage: 2507mV | Estimated Voltage: 3095.58
+Raw Data Reading: 2898 | Calibrated Voltage: 2518mV | Estimated Voltage: 3113.85
+Raw Data Reading: 2882 | Calibrated Voltage: 2508mV | Estimated Voltage: 3096.65
+Raw Data Reading: 2885 | Calibrated Voltage: 2510mV | Estimated Voltage: 3099.88
+Raw Data Reading: 2934 | Calibrated Voltage: 2539mV | Estimated Voltage: 3152.53
+Raw Data Reading: 2891 | Calibrated Voltage: 2514mV | Estimated Voltage: 3106.32
+Raw Data Reading: 2891 | Calibrated Voltage: 2514mV | Estimated Voltage: 3106.32
+Raw Data Reading: 2886 | Calibrated Voltage: 2510mV | Estimated Voltage: 3100.95
+Raw Data Reading: 2849 | Calibrated Voltage: 2481mV | Estimated Voltage: 3061.20
+Raw Data Reading: 2892 | Calibrated Voltage: 2514mV | Estimated Voltage: 3107.40
+Raw Data Reading: 2797 | Calibrated Voltage: 2438mV | Estimated Voltage: 3005.32
+Raw Data Reading: 2890 | Calibrated Voltage: 2514mV | Estimated Voltage: 3105.25
+Raw Data Reading: 2800 | Calibrated Voltage: 2441mV | Estimated Voltage: 3008.55
+Raw Data Reading: 2860 | Calibrated Voltage: 2490mV | Estimated Voltage: 3073.02
+Raw Data Reading: 2886 | Calibrated Voltage: 2510mV | Estimated Voltage: 3100.95
+Raw Data Reading: 2882 | Calibrated Voltage: 2508mV | Estimated Voltage: 3096.65
+Raw Data Reading: 3024 | Calibrated Voltage: 2600mV | Estimated Voltage: 3249.23
+Raw Data Reading: 2854 | Calibrated Voltage: 2485mV | Estimated Voltage: 3066.57
+Raw Data Reading: 2909 | Calibrated Voltage: 2525mV | Estimated Voltage: 3125.67
+Raw Data Reading: 2909 | Calibrated Voltage: 2525mV | Estimated Voltage: 3125.67
+Raw Data Reading: 2810 | Calibrated Voltage: 2449mV | Estimated Voltage: 3019.29
+Raw Data Reading: 2883 | Calibrated Voltage: 2509mV | Estimated Voltage: 3097.73
+Raw Data Reading: 2882 | Calibrated Voltage: 2508mV | Estimated Voltage: 3096.65
+Raw Data Reading: 2896 | Calibrated Voltage: 2518mV | Estimated Voltage: 3111.70
+Raw Data Reading: 2885 | Calibrated Voltage: 2510mV | Estimated Voltage: 3099.88
+Raw Data Reading: 2885 | Calibrated Voltage: 2510mV | Estimated Voltage: 3099.88
+Raw Data Reading: 2923 | Calibrated Voltage: 2533mV | Estimated Voltage: 3140.71
+Raw Data Reading: 2879 | Calibrated Voltage: 2506mV | Estimated Voltage: 3093.43
+Raw Data Reading: 2891 | Calibrated Voltage: 2514mV | Estimated Voltage: 3106.32
+Raw Data Reading: 2893 | Calibrated Voltage: 2515mV | Estimated Voltage: 3108.47
+Raw Data Reading: 2893 | Calibrated Voltage: 2515mV | Estimated Voltage: 3108.47
+Raw Data Reading: 2778 | Calibrated Voltage: 2423mV | Estimated Voltage: 2984.91
+Raw Data Reading: 3008 | Calibrated Voltage: 2590mV | Estimated Voltage: 3232.04
+Raw Data Reading: 2889 | Calibrated Voltage: 2513mV | Estimated Voltage: 3104.18
+Raw Data Reading: 3027 | Calibrated Voltage: 2602mV | Estimated Voltage: 3252.45
+Raw Data Reading: 2887 | Calibrated Voltage: 2511mV | Estimated Voltage: 3102.03
+Raw Data Reading: 2912 | Calibrated Voltage: 2527mV | Estimated Voltage: 3128.89
+Raw Data Reading: 2891 | Calibrated Voltage: 2514mV | Estimated Voltage: 3106.32
+Raw Data Reading: 2890 | Calibrated Voltage: 2514mV | Estimated Voltage: 3105.25
+Raw Data Reading: 2896 | Calibrated Voltage: 2518mV | Estimated Voltage: 3111.70
+Raw Data Reading: 2841 | Calibrated Voltage: 2475mV | Estimated Voltage: 3052.60
+Raw Data Reading: 2895 | Calibrated Voltage: 2517mV | Estimated Voltage: 3110.62
+Raw Data Reading: 2896 | Calibrated Voltage: 2518mV | Estimated Voltage: 3111.70
+Raw Data Reading: 2890 | Calibrated Voltage: 2514mV | Estimated Voltage: 3105.25
+Raw Data Reading: 2969 | Calibrated Voltage: 2562mV | Estimated Voltage: 3190.13
+Raw Data Reading: 3023 | Calibrated Voltage: 2600mV | Estimated Voltage: 3248.16
+Raw Data Reading: 2893 | Calibrated Voltage: 2515mV | Estimated Voltage: 3108.47
+Raw Data Reading: 2894 | Calibrated Voltage: 2516mV | Estimated Voltage: 3109.55
+Raw Data Reading: 2883 | Calibrated Voltage: 2509mV | Estimated Voltage: 3097.73
+Raw Data Reading: 3038 | Calibrated Voltage: 2610mV | Estimated Voltage: 3264.27
+Raw Data Reading: 2894 | Calibrated Voltage: 2516mV | Estimated Voltage: 3109.55
+Raw Data Reading: 2809 | Calibrated Voltage: 2448mV | Estimated Voltage: 3018.22
+Raw Data Reading: 2816 | Calibrated Voltage: 2454mV | Estimated Voltage: 3025.74
+Raw Data Reading: 2881 | Calibrated Voltage: 2507mV | Estimated Voltage: 3095.58
+Raw Data Reading: 2892 | Calibrated Voltage: 2514mV | Estimated Voltage: 3107.40
+Raw Data Reading: 2896 | Calibrated Voltage: 2518mV | Estimated Voltage: 3111.70
+Raw Data Reading: 2883 | Calibrated Voltage: 2509mV | Estimated Voltage: 3097.73

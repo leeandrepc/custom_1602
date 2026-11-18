@@ -1,0 +1,80 @@
+Command: /home/andre/.espressif/python_env/idf6.1_py3.14_env/bin/python /home/andre/.espressif/v6.1/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/andre/pythonstuff/learning/esp32proj/custom_1602/build/custom_1602.elf /home/andre/pythonstuff/learning/esp32proj/custom_1602/build/bootloader/bootloader.elf -m '/home/andre/.espressif/python_env/idf6.1_py3.14_env/bin/python' '/home/andre/.espressif/v6.1/esp-idf/tools/idf.py'
+160000000 Hz
+[0;32mI (174) app_init: Application information:[0m
+[0;32mI (177) app_init: Project name:     custom_1602[0m
+I (1�ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15824
+load:0x40080400,len:3988
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.1 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Nov 17 2026 16:10:37[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (31) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (35) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=097bch ( 38844) map[0m
+[0;32mI (100) esp_image: segment 1: paddr=000197e4 vaddr=3ffb0000 size=02b5ch ( 11100) load[0m
+[0;32mI (104) esp_image: segment 2: paddr=0001c348 vaddr=40080000 size=03cd0h ( 15568) load[0m
+[0;32mI (111) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=0ef5ch ( 61276) map[0m
+[0;32mI (133) esp_image: segment 4: paddr=0002ef84 vaddr=40083cd0 size=06fach ( 28588) load[0m
+[0;32mI (145) esp_image: segment 5: paddr=00035f38 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (151) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (151) boot: Disabling RNG early entropy source...[0m
+[0;32mI (163) cpu_start: Multicore app[0m
+[0;32mI (171) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (172) cpu_start: Pro cpu start user code[0m
+[0;32mI (172) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (174) app_init: Application information:[0m
+[0;32mI (177) app_init: Project name:     custom_1602[0m
+[0;32mI (182) app_init: App version:      3b540a8[0m
+[0;32mI (186) app_init: Compile time:     Nov 17 2026 16:04:01[0m
+[0;32mI (191) app_init: ELF file SHA256:  dfaccdb66...[0m
+[0;32mI (195) app_init: ESP-IDF:          v6.1[0m
+[0;32mI (199) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (202) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (206) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (211) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (217) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (222) heap_init: At 3FFB35B8 len 0002CA48 (178 KiB): DRAM[0m
+[0;32mI (227) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (232) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (238) heap_init: At 4008AC7C len 00015384 (84 KiB): IRAM[0m
+[0;33mW (244) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (256) spi_flash: detected chip: generic[0m
+[0;32mI (260) spi_flash: flash io: dio[0m
+[0;33mW (263) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (276) main_task: Started on CPU0[0m
+[0;32mI (276) main_task: Calling app_main()[0m
+[0;32mI (276) TESTING: CHECKPOINT -1[0m
+[0;32mI (276) INFO: Line fitting calibration available[0m
+[0;32mI (286) TESTING: CHECKPOINT 0[0m
+[0;32mI (286) TESTING: CHECKPOINT 1[0m
+[0;32mI (286) TESTING: CHECKPOINT 2[0m
+Raw Data Reading: 2877 | Calibrated Voltage: 2504mV | Estimated Voltage: 3091.28
+Raw Data Reading: 2938 | Calibrated Voltage: 2541mV | Estimated Voltage: 3156.83
+Raw Data Reading: 2914 | Calibrated Voltage: 2528mV | Estimated Voltage: 3131.04
+Raw Data Reading: 2917 | Calibrated Voltage: 2530mV | Estimated Voltage: 3134.26
+Raw Data Reading: 2875 | Calibrated Voltage: 2502mV | Estimated Voltage: 3089.13
+Raw Data Reading: 2923 | Calibrated Voltage: 2533mV | Estimated Voltage: 3140.71
+Raw Data Reading: 2896 | Calibrated Voltage: 2518mV | Estimated Voltage: 3111.70
+Raw Data Reading: 2865 | Calibrated Voltage: 2494mV | Estimated Voltage: 3078.39
+Raw Data Reading: 2887 | Calibrated Voltage: 2511mV | Estimated Voltage: 3102.03
+Raw Data Reading: 2884 | Calibrated Voltage: 2509mV | Estimated Voltage: 3098.80
+Raw Data Reading: 2891 | Calibrated Voltage: 2514mV | Estimated Voltage: 3106.32
+Raw Data Reading: 2896 | Calibrated Voltage: 2518mV | Estimated Voltage: 3111.70
+Raw Data Reading: 2886 | Calibrated Voltage: 2510mV | Estimated Voltage: 3100.95
+Raw Data Reading: 2768 | Calibrated Voltage: 2415mV | Estimated Voltage: 2974.16

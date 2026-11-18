@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/home/andre/pythonstuff/learning/esp32proj/custom_1602/build/CMakeFiles/bootloader
+/home/andre/pythonstuff/learning/esp32proj/custom_1602/build/CMakeFiles/bootloader.rule
+/home/andre/pythonstuff/learning/esp32proj/custom_1602/build/CMakeFiles/bootloader-complete.rule
+/home/andre/pythonstuff/learning/esp32proj/custom_1602/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/home/andre/pythonstuff/learning/esp32proj/custom_1602/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/andre/pythonstuff/learning/esp32proj/custom_1602/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/andre/pythonstuff/learning/esp32proj/custom_1602/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/andre/pythonstuff/learning/esp32proj/custom_1602/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/andre/pythonstuff/learning/esp32proj/custom_1602/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/andre/pythonstuff/learning/esp32proj/custom_1602/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
