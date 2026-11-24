@@ -43,7 +43,7 @@
 // typedef uint8_t lcd_pin_t[];
 
 esp_err_t lcd_pin_init_config(lcd_pin_t lcd_handle){
-    ESP_LOGI("TESTING", "DRIVER CHECKPOINT 1");
+    // ESP_LOGI("TESTING", "DRIVER CHECKPOINT 1");
     gpio_config_t pin_conf;
     esp_err_t ret;
     for (uint8_t i=0; i<PIN_NUM_CONTROL+3; i++){
@@ -93,7 +93,7 @@ esp_err_t lcd_pin_data_write(lcd_pin_t* lcd_handle, bool rs, bool rw, char conf_
 esp_err_t lcd_pin_data_write(lcd_pin_t lcd_handle, bool rs, bool rw, char conf_as_hex, bool reset_flag){
     ESP_ERROR_CHECK(gpio_set_level(lcd_handle[pin_RS], rs));
     ESP_ERROR_CHECK(gpio_set_level(lcd_handle[pin_RW], rw));
-    // First send upper bits
+    // First: send upper bits
     bool level;
     for (uint8_t i=pin_DB7; i<PIN_NUM_CONTROL+3; i++){
         level = (conf_as_hex>>(7-(i-3)))&0x01;
@@ -101,7 +101,7 @@ esp_err_t lcd_pin_data_write(lcd_pin_t lcd_handle, bool rs, bool rw, char conf_a
     }
     lcd_enable_pin(lcd_handle);
     usleep(40); // Wait 40us just in case
-    // Second send lower bits
+    // Second: send lower bits
     if (reset_flag==0){
         for (uint8_t i=pin_DB7; i<PIN_NUM_CONTROL+3; i++){
             level = (conf_as_hex>>(3-(i-3)))&0x01;
@@ -168,10 +168,9 @@ esp_err_t lcd_reset(lcd_pin_t lcd_handle){
 // How to write to screen:
 // 1602 has 80bytes of display data ram
 // 40 for top row, 40 for bottom row
-// Display only displays first 16 bytes of top row, and first 16 bytes of bottom row
+// Display only prints first 16 bytes of top row, and first 16 bytes of bottom row
 // This means the display can scroll text left and right
 // To write to display: choose address of DDRAM and write
-// To add custom symbol: choose address counter of CGRAM and call write instruction
 
 // DDRAM ADDRESS LIST                               OUTSIDE OF DISPLAY
 //  0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 ... 38 39
@@ -202,10 +201,65 @@ esp_err_t ddram_write(lcd_pin_t lcd_handle, char* word, uint8_t row, uint8_t col
     }
     return ESP_OK;
 }
-  
 
-// TODO: Write to CGRAM to introduce new symbols to the LCD memory
-esp_err_t cgram_write(lcd_pin_t lcd_handle){
+// Turn int to string so it can be written by ddram_write onto lcd
+esp_err_t num_writer(lcd_pin_t lcd_handle, int num, uint8_t row, uint8_t col, uint8_t max_digits){
+    char buffer[max_digits+1];
+    int length = sprintf(buffer, "%*d", max_digits, num);
+    // manual error checking just in case
+    if (length < 0){
+        return ESP_ERR_NOT_FINISHED;
+    }
+    esp_err_t err = ddram_write(lcd_handle, buffer, row, col);
+    return err;
+}
+
+
+// CGRAM can store:
+//  - up to 8 8x5 character patterns from 0000*000 to 0000*111 where * is either 1 or 0
+//  - up to 4 10x5 character patterns from 0000*00* to 0000*11* where * is either 1 or 0
+// currently only 8x5 characters are implemented
+/* 
+    CGRAM write procedure:
+        - Store desired custom character as a 8x5 matrix of 0 and 1s
+        - Set CGRAM address
+        - Write matrix into CGRAM address row by row (8 total)
+        - CGRAM address: 01XXXYYY - X is 3 bit address that corresponds to DDRAM last 3 bits 
+
+*/
+esp_err_t cgram_write(lcd_pin_t lcd_handle, uint8_t* charmat, char ddram_address){
+
+    // Convert DDRAM address last 3 bits to CGRAM address AC5-AC3 (DDRAM<<3, shift left 3)
+    // for 01XXXYYY: 64+(DDRAM<<3)+y; where y is 0 to 7 for lines 1 to 8
+    for (uint8_t row = 0; row < 8; row++){
+        lcd_pin_data_write(lcd_handle, 0, 0, 64+(ddram_address<<3)+row, 0);
+        // Convert cols of row to hex/data
+        char line_dat;
+        for (uint8_t col = 0; col < 5; col++){
+            line_dat += (charmat[row*5+col]<<(4-col));
+        }
+        usleep(40);
+        lcd_pin_data_write(lcd_handle, 1, 0, line_dat, 0);
+        usleep(45);
+        line_dat = 0;
+    }
+    return ESP_OK;
+}
+
+esp_err_t ddram_write_custom(lcd_pin_t lcd_handle, char DDRAM_ADDR, uint8_t row, uint8_t col){
+    // Set DDRAM ADDRESS
+    char addr = col;
+    if (row==0){
+        lcd_pin_data_write(lcd_handle, 0, 0, (addr+128), 0);
+    } else if (row==1){
+        addr = col + 64;
+        lcd_pin_data_write(lcd_handle, 0, 0, (addr+128), 0);
+    } else return ESP_ERR_INVALID_ARG;
+    usleep(40);
+
+    // Write to LCD starting at address
+    lcd_pin_data_write(lcd_handle, 1, 0, DDRAM_ADDR, 0);
+    usleep(45);
     return ESP_OK;
 }
 
